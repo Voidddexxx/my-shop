@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-sidenav',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
+
+
+  @ViewChild('drawer') private drawer!: MatDrawer;
   showFiller = false;
-  inputInitValue = 'inputInitValue';
+  inputInitValue = 'productName';
+
+  toggleDrawer() {
+    this.drawer.toggle();
+  }
+  log(event: HTMLInputElement) {
+    console.log(event.value);
+  }
 
 }

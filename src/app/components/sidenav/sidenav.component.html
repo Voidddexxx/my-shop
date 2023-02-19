@@ -1,5 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer
+    #drawer
+    class="example-sidenav"
+    mode="side"
+  >
     <p>Auto-resizing sidenav</p>
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <button (click)="showFiller = !showFiller" mat-raised-button>
@@ -9,7 +13,7 @@
 
   <div class="example-sidenav-content">
     <input type="text" [value]="inputInitValue">
-    <button type="button" mat-button (click)="drawer.toggle()">
+    <button type="button" mat-button (click)="toggleDrawer()">
       Toggle sidenav
     </button>
   </div>
