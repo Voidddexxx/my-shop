@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidenavComponent } from './sidenav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatButtonModule} from "@angular/material/button";
-import {ProductsModule} from "../../pages/products-list/products.module";
-
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -14,11 +12,10 @@ import {ProductsModule} from "../../pages/products-list/products.module";
   exports: [
     SidenavComponent
   ],
-    imports: [
-        CommonModule,
-        MatSidenavModule,
-        MatButtonModule,
-        ProductsModule
-    ]
+  imports: [
+    CommonModule,
+    MatSidenavModule,
+    MatListModule,
+  ]
 })
 export class SidenavModule { }

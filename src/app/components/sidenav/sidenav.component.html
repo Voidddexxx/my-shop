@@ -4,18 +4,11 @@
     class="example-sidenav"
     mode="side"
   >
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+    <ng-container #drawerViewPort></ng-container>
+<!--    <ng-content select="mat-list"></ng-content>-->
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    <input type="text" [value]="inputInitValue">
-    <app-products></app-products>
-    <button type="button" mat-button (click)="toggleDrawer()">
-      Toggle sidenav
-    </button>
+    <ng-content></ng-content>
   </div>
 </mat-drawer-container>

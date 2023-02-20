@@ -1,4 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
@@ -6,18 +15,25 @@ import {MatDrawer} from "@angular/material/sidenav";
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit
+{
 
+  // @Input() listTemplate!: TemplateRef<unknown>;
+  @ViewChild(MatDrawer, {static: true}) private drawerComponent!: MatDrawer;
+  @ViewChild('drawerViewPort', {static: true, read: ViewContainerRef}) private drawerViewPortElement!: ViewContainerRef;
+  @ContentChild('list', {static: true}) private listTemplate!: TemplateRef<unknown>;
 
-  @ViewChild('drawer') private drawer!: MatDrawer;
-  showFiller = false;
-  inputInitValue = 'productName';
+  ngOnInit() {
+    this.insertList(this.listTemplate);
+  }
 
   toggleDrawer() {
-    this.drawer.toggle();
+    this.drawerComponent.toggle();
   }
-  log(event: HTMLInputElement) {
-    console.log(event.value);
+
+  private insertList(template: TemplateRef<unknown>) {
+    this.drawerViewPortElement.clear();
+    this.drawerViewPortElement.createEmbeddedView(template);
   }
 
 }

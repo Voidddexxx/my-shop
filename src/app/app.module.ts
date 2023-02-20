@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {HeaderModule} from "./components/header/header.module";
 import {SidenavModule} from "./components/sidenav/sidenav.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ProductsModule} from "./pages/products-list/products.module";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     // AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
-    SidenavModule
+    SidenavModule,
+    ProductsModule,
+    MatListModule
   ],
   bootstrap: [AppComponent]
 })
