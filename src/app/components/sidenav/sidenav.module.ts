@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidenavComponent } from './sidenav.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
+import {ProductsModule} from "../../pages/products/products.module";
 
 
 
@@ -13,10 +14,11 @@ import {MatButtonModule} from "@angular/material/button";
   exports: [
     SidenavComponent
   ],
-  imports: [
-    CommonModule,
-    MatSidenavModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        MatSidenavModule,
+        MatButtonModule,
+        ProductsModule
+    ]
 })
 export class SidenavModule { }
