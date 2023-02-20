@@ -1,13 +1,14 @@
-:host {
-  width: 300px;
-}
+//:host {
+//  width: 350px;
+//}
 
 .card {
-  width: 100%;
+  width: 350px;
+  min-height: 400px;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-
+  //flex-direction: column;
+  margin: 10px;
   mat-card-subtitle {
     text-align: right;
   }
