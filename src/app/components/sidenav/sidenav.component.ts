@@ -1,8 +1,6 @@
 import {
   Component,
   ContentChild,
-  ElementRef,
-  Input,
   OnInit,
   TemplateRef,
   ViewChild,
@@ -17,8 +15,6 @@ import {MatDrawer} from "@angular/material/sidenav";
 })
 export class SidenavComponent implements OnInit
 {
-
-  // @Input() listTemplate!: TemplateRef<unknown>;
   @ViewChild(MatDrawer, {static: true}) private drawerComponent!: MatDrawer;
   @ViewChild('drawerViewPort', {static: true, read: ViewContainerRef}) private drawerViewPortElement!: ViewContainerRef;
   @ContentChild('list', {static: true}) private listTemplate!: TemplateRef<unknown>;

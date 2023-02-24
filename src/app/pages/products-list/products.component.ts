@@ -8,4 +8,5 @@ import {productsMock} from "../../shared/products/products.mock";
 })
 export class ProductsComponent {
   products = productsMock;
+
 }
