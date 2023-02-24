@@ -1,9 +1,10 @@
-import {Component, Input, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
 
 @Component({
   selector: 'app-insert-popup',
   templateUrl: './insert-popup.component.html',
-  styleUrls: ['./insert-popup.component.scss']
+  styleUrls: ['./insert-popup.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InsertPopupComponent {
   @Input()
