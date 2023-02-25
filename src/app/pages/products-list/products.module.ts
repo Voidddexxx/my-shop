@@ -15,10 +15,10 @@ import {ProductsComponent} from "./products.component";
   exports: [
     ProductsComponent
   ],
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatCardModule
-  ]
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatCardModule,
+    ]
 })
 export class ProductsModule { }

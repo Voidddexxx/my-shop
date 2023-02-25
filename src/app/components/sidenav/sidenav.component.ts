@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   ContentChild,
   OnInit,
@@ -25,8 +25,14 @@ export class SidenavComponent implements OnInit
     this.insertList(this.listTemplate);
   }
 
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+  ) {
+  }
+
   toggleDrawer() {
     this.drawerComponent.toggle();
+    this.changeDetectorRef.markForCheck();
   }
 
   private insertList(template: TemplateRef<unknown>) {

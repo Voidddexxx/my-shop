@@ -8,6 +8,5 @@ import {productsMock} from "../../shared/products/products.mock";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent {
-  products = productsMock;
-
+  readonly products = productsMock;
 }
