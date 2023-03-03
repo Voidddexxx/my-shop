@@ -8,7 +8,7 @@ import {IProduct} from "../../../shared/products/product.interface";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
-  @Input() product!: IProduct;
+  @Input() product: IProduct | undefined;
   @Output() buyProduct = new EventEmitter<void>();
 
   onProductBuy(event: Event) {

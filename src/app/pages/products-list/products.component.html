@@ -1,6 +1,45 @@
-<div class="container">
-<app-product-card class="product" [product]="products[0]"></app-product-card>
-<app-product-card class="product" [product]="products[1]"></app-product-card>
-<app-product-card class="product" [product]="products[2]"></app-product-card>
-<app-product-card class="product" [product]="products[3]"></app-product-card>
+<div *ngIf="products; else spinner" class="container">
+  <ng-container *appCarousel="
+        let content of products;
+        elementsSize: 2;
+        let allIndexes = allIndexes;
+        let activeIndex = index;
+        let next = next;
+        let back = back;
+        let selectIndex = selectIndex
+    ">
+    <div class="card-container">
+      <app-product-card
+        *ngFor="let product of content; trackBy: trackBy; let index = index"
+        class="product"
+        [product]="product"
+      ></app-product-card>
+    </div>
+
+    <div class="pagination-container">
+      <button mat-icon-button (click)="back()">
+        <mat-icon>
+          chevron_left
+        </mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        *ngFor="let index of allIndexes"
+        class="pagination__page-number"
+        [class.pagination__page-number_active]="activeIndex === index"
+        (click)="selectIndex(index)"
+      >
+        {{index}}
+      </button>
+      <button mat-icon-button (click)="next()">
+        <mat-icon>
+          chevron_right
+        </mat-icon>
+      </button>
+    </div>
+  </ng-container>
 </div>
+
+<ng-template #spinner>
+  <mat-spinner class="spinner"></mat-spinner>
+</ng-template>

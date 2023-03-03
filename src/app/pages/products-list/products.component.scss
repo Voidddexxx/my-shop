@@ -3,6 +3,31 @@
   flex-direction: column;
 }
 
+.spinner {
+  margin: 100px auto;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  &__page-number {
+    cursor: pointer;
+
+    &_active {
+      color: rgb(0, 13, 255);
+    }
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 //.product:not(:nth-child(1)) {
 //  margin-top: 10px;
 //}

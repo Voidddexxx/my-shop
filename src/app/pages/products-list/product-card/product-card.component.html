@@ -1,20 +1,27 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title>{{product.name}}</mat-card-title>
-    <mat-card-subtitle>{{product.price}} Р</mat-card-subtitle>
+    <mat-card-title>{{product?.name}}</mat-card-title>
+    <mat-card-subtitle>{{product?.price}} Р</mat-card-subtitle>
   </mat-card-header>
-  <div class="gallery">
-    <button mat-icon-button>
+<!--  <ng-template-->
+<!--    appCarousel-->
+<!--    let-img-->
+<!--    [appCarouselOf]="product?.images"-->
+<!--    (emitBack)="back = $event" (emitNext)="next = $event"-->
+<!--  >-->
+  <div *appCarousel="let img of product?.images; let next=next; let back=back" class="gallery">
+    <button mat-icon-button (click)="back()">
       <mat-icon>
         chevron_left
       </mat-icon>
     </button>
-    <img mat-card-image [src]="product.images[0].url" alt="Product photo">
-    <button mat-icon-button>
+    <img mat-card-image [src]="img.url" alt="Product photo">
+    <button mat-icon-button (click)="next()">
       <mat-icon>
         chevron_right
       </mat-icon>
     </button>
+<!--  </ng-template>-->
   </div>
   <mat-card-actions class="mat-card-actions-align-end">
     <button mat-button (click)="onProductBuy($event)">BUY</button>
