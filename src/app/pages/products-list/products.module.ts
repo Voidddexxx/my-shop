@@ -7,6 +7,7 @@ import {ProductsComponent} from "./products.component";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from "@angular/material/button";
 import {CarouselModule} from "../../shared/carousel/carousel.module";
+import {JsonPipeModule} from "../../shared/json-pipe/json-pipe.module";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {CarouselModule} from "../../shared/carousel/carousel.module";
     MatCardModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    CarouselModule
+    CarouselModule,
+    JsonPipeModule
   ]
 })
 export class ProductsModule { }

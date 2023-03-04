@@ -17,4 +17,6 @@ export class ProductCardComponent {
     this.buyProduct.emit();
   }
 
+  getJsonProduct = JSON.stringify;
+
 }

@@ -20,11 +20,11 @@ export class ProductsComponent implements OnInit {
     setTimeout(() => {
       this.products = productsMock.slice(0, 4);
       this.changeDetectorRef.markForCheck();
-    }, 20000);
+    }, 2000);
     setTimeout(() => {
       this.products = productsMock.map(item => ({...item}));
       this.changeDetectorRef.markForCheck();
-    }, 70000);
+    }, 7000);
   }
 
   trackBy(index: number) {
