@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {productsMock} from "../../shared/products/products.mock";
 import {IProduct} from "../../shared/products/product.interface";
+import {map, Observable, Subject, Subscription, takeUntil, timer} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -8,24 +9,34 @@ import {IProduct} from "../../shared/products/product.interface";
   styleUrls: ['./products.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductsComponent implements OnInit {
-  products: IProduct[] | undefined = undefined;
+export class ProductsComponent {
+  // products: IProduct[] | undefined = undefined;
+  readonly products$: Observable<IProduct[]> = timer(2000).pipe(
+    map(() => productsMock)
+  );
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {
-  }
+  // private readonly subscription: Subscription = new Subscription();
+  // private readonly destroy$ = new Subject<void>();
+  // constructor(
+  //   private changeDetectorRef: ChangeDetectorRef,
+  // ) { }
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.products = productsMock.slice(0, 4);
-      this.changeDetectorRef.markForCheck();
-    }, 2000);
-    setTimeout(() => {
-      this.products = productsMock.map(item => ({...item}));
-      this.changeDetectorRef.markForCheck();
-    }, 7000);
-  }
+  // ngOnInit() {
+   // this.products$
+   //   .pipe(
+   //     takeUntil(this.destroy$),
+   //   )
+   //   .subscribe((products) => {
+   //        this.products = products;
+   //        this.changeDetectorRef.markForCheck();
+   //      });
+  // }
+
+  // ngOnDestroy() {
+    // this.subscription?.unsubscribe();
+    // this.destroy$.next();
+    // this.destroy$.complete();
+  // }
 
   trackBy(index: number) {
     return index;
